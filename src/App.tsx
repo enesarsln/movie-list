@@ -1,23 +1,17 @@
-import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MovieList from './components/MovieList';
+import MovieDetail from './components/MovieDetail';
 
-const App: React.FC = () => {
+function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<MovieList />} />
+          <Route path="/movie/:movieID" element={<MovieDetail />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
